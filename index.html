@@ -309,6 +309,41 @@ footer{background:var(--navy-deep);padding:2.2rem 0;}
 .money-float { position:absolute; font-size:1.5rem; pointer-events:none; user-select:none; opacity:.65; animation:mFloat var(--d,4s) ease-in-out var(--dl,0s) infinite; }
 @keyframes mFloat { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-16px) rotate(5deg)} }
 
+/* Termék-részletek modal */
+.svc-modal-tag{cursor:pointer;transition:background .2s,transform .15s;}
+.svc-modal-tag:hover{background:rgba(125,200,192,.28);transform:translateY(-1px);}
+.prod-faq{margin-top:1rem;}
+.prod-faq details{border:1.5px solid var(--border);border-radius:10px;margin-bottom:.5rem;overflow:hidden;}
+.prod-faq summary{padding:.7rem .9rem;font-family:var(--fb);font-size:.8rem;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+.prod-faq summary::-webkit-details-marker{display:none;}
+.prod-faq summary::after{content:'▾';color:var(--teal);transition:transform .2s;}
+.prod-faq details[open] summary::after{transform:rotate(180deg);}
+.prod-faq details[open] summary{border-bottom:1px solid var(--border);background:rgba(125,200,192,.06);}
+.prod-faq-a{padding:.7rem .9rem;font-size:.8rem;color:var(--gray);line-height:1.65;}
+.prod-cta-btn{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem;padding:.75rem 1.6rem;border-radius:10px;background:var(--navy);color:#fff;font-family:var(--fb);font-size:.85rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:background .2s;}
+.prod-cta-btn:hover{background:#22376a;}
+.prod-back{background:none;border:none;color:var(--teal);font-family:var(--fb);font-size:.76rem;font-weight:700;cursor:pointer;padding:0;margin-bottom:.7rem;}
+
+/* Lead form */
+#lead{background:var(--bg);padding:4.5rem 0;}
+.lead-box{max-width:640px;margin:0 auto;background:#fff;border:1.5px solid var(--border);border-radius:22px;padding:2.4rem 2.6rem;box-shadow:0 10px 40px rgba(27,56,88,.08);}
+.lead-title{font-family:var(--fb);font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:800;color:var(--navy);margin-bottom:.4rem;}
+.lead-sub{font-size:.85rem;color:var(--gray);line-height:1.7;margin-bottom:1.5rem;}
+.lead-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+@media(max-width:560px){.lead-row{grid-template-columns:1fr;}.lead-box{padding:1.6rem 1.2rem;}}
+.lead-field{margin-bottom:.8rem;}
+.lead-field label{display:block;font-family:var(--fb);font-size:.72rem;font-weight:700;color:var(--navy);margin-bottom:.3rem;}
+.lead-field input,.lead-field textarea{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:.65rem .85rem;font-size:.85rem;font-family:var(--fd);color:var(--navy);outline:none;transition:border-color .2s;background:var(--bg);}
+.lead-field input:focus,.lead-field textarea:focus{border-color:var(--teal);background:#fff;}
+.lead-gdpr{display:flex;gap:.55rem;align-items:flex-start;font-size:.72rem;color:var(--gray);line-height:1.55;margin:.9rem 0 1.1rem;}
+.lead-gdpr input{margin-top:.2rem;flex-shrink:0;}
+.lead-send{width:100%;padding:.9rem;border:none;border-radius:12px;background:var(--navy);color:#fff;font-family:var(--fb);font-size:.92rem;font-weight:800;cursor:pointer;transition:background .2s;}
+.lead-send:hover{background:#22376a;}
+.lead-send:disabled{opacity:.6;cursor:default;}
+.lead-status{text-align:center;font-family:var(--fb);font-size:.8rem;font-weight:700;margin-top:.7rem;min-height:1.2rem;}
+.lead-trust{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-top:1.1rem;font-family:var(--fb);font-size:.7rem;font-weight:600;color:var(--gray);}
+.lead-trust span{color:var(--green);}
+
 /* Hero photo 3D flip */
 .photo-wrap { perspective: 600px; }
 .photo-flip-inner { position: relative; width: 220px; height: 220px; transform-style: preserve-3d; transition: transform .55s cubic-bezier(.4,0,.2,1); border-radius: 50%; margin: 0 auto; }
@@ -508,7 +543,7 @@ function toggleTeam(){
         <div class="svc-body">
           <div class="svc-desc">Hitel, CSOK Plusz, jelzálog, kiváltás — a teljes piac legjobb ajánlatával.</div>
           <div class="svc-tags">
-            <span class="svc-tag">Lakáshitel</span><span class="svc-tag">Építési hitelek</span><span class="svc-tag">Személyi kölcsön</span><span class="svc-tag">Babaváró</span><span class="svc-tag">CSOK Plusz</span><span class="svc-tag">Falusi CSOK</span>          </div>
+            <span class="svc-tag">Otthon Start 3%</span><span class="svc-tag">Lakáshitel</span><span class="svc-tag">Építési hitelek</span><span class="svc-tag">Személyi kölcsön</span><span class="svc-tag">Babaváró</span><span class="svc-tag">CSOK Plusz</span><span class="svc-tag">Falusi CSOK</span>          </div>
         </div>
       </div>
 
@@ -920,6 +955,37 @@ Ma már egy 30 fős csapat élén dolgozom 3 irodában, ahol nap mint nap közö
   </div>
 </section>
 
+<section id="lead">
+  <div class="container">
+    <div class="lead-box">
+      <div style="text-align:center;"><div class="label-chip chip-teal">Vagy írj — visszahívlak</div></div>
+      <h2 class="lead-title" style="text-align:center;">Kérdésed van? Hagyd itt, és jelentkezem.</h2>
+      <p class="lead-sub" style="text-align:center;">Ha még nem foglalnál időpontot, csak kérdeznél — töltsd ki, és 24 órán belül felveszem veled a kapcsolatot.</p>
+      <form id="leadForm" onsubmit="return leadSubmit(event)">
+        <div class="lead-row">
+          <div class="lead-field"><label>Név *</label><input type="text" id="leadName" required autocomplete="name"></div>
+          <div class="lead-field"><label>Telefonszám *</label><input type="tel" id="leadPhone" required autocomplete="tel"></div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-field"><label>E-mail cím *</label><input type="email" id="leadEmail" required autocomplete="email"></div>
+          <div class="lead-field"><label>Téma</label><input type="text" id="leadTopic" placeholder="pl. lakáshitel, nyugdíj..."></div>
+        </div>
+        <div class="lead-field"><label>Üzenet</label><textarea id="leadMsg" rows="3" placeholder="Írd le röviden, miben segíthetek..."></textarea></div>
+        <input type="text" id="leadWebsite" style="display:none;" tabindex="-1" autocomplete="off">
+        <label class="lead-gdpr"><input type="checkbox" id="leadGdpr" required>
+          <span>Hozzájárulok, hogy a megadott adataimat a kapcsolatfelvétel céljából kezeljék. Az adatokat harmadik félnek nem adjuk át, és kérésre töröljük.</span></label>
+        <button type="submit" class="lead-send" id="leadSendBtn">📮 Visszahívást kérek</button>
+        <div class="lead-status" id="leadStatus"></div>
+      </form>
+      <div class="lead-trust">
+        <div><span>✓</span> Díjmentes</div>
+        <div><span>✓</span> Kötelezettség nélkül</div>
+        <div><span>✓</span> Visszahívás 24 órán belül</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container">
     <div class="footer-social">
@@ -966,6 +1032,19 @@ Ma már egy 30 fős csapat élén dolgozom 3 irodában, ahol nap mint nap közö
     <div class="svc-modal-steps" id="mSteps"></div>
   </div>
 </div>
+<div class="svc-overlay" id="prodOverlay">
+  <div class="svc-modal" id="prodModal">
+    <button class="svc-modal-close" onclick="closeProd()">✕</button>
+    <button class="prod-back" onclick="closeProd()">← Vissza</button>
+    <div class="svc-modal-icon" id="pIcon"></div>
+    <div class="svc-modal-title" id="pTitle"></div>
+    <div class="svc-modal-desc" id="pDesc"></div>
+    <div class="svc-modal-plabel">Gyakori kérdések:</div>
+    <div class="prod-faq" id="pFaq"></div>
+    <button class="prod-cta-btn" id="pCta" onclick="prodAsk()">📮 Ajánlatot kérek erre</button>
+  </div>
+</div>
+
 <script>
 function openSvc(card) {
   var icon  = card.querySelector('.svc-icon').textContent;
@@ -979,7 +1058,10 @@ function openSvc(card) {
   document.getElementById('mIcon').textContent  = icon;
   document.getElementById('mTitle').textContent = title;
   document.getElementById('mDesc').textContent  = desc;
-  document.getElementById('mTags').innerHTML    = tags.map(function(t){return '<span class="svc-modal-tag">'+t+'</span>';}).join('');
+  document.getElementById('mTags').innerHTML    = tags.map(function(t){
+    var has = PRODUCT_INFO[t] ? ' title="Kattints a részletekért!"' : '';
+    return '<span class="svc-modal-tag"'+has+' onclick="openProd(\''+t.replace(/'/g,"\\'")+'\')">'+t+(PRODUCT_INFO[t]?' ›':'')+'</span>';
+  }).join('');
   document.getElementById('mWhy').textContent   = why;
   document.getElementById('mSteps').innerHTML   = steps.map(function(s){return '<div class="svc-modal-step">'+s+'</div>';}).join('');
 
@@ -994,7 +1076,165 @@ document.getElementById('svcClose').addEventListener('click', closeSvc);
 document.getElementById('svcOverlay').addEventListener('click', function(e){
   if(e.target === this) closeSvc();
 });
-document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeSvc(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeProd(); closeSvc(); } });
+
+// ── TERMÉK-RÉSZLETEK ────────────────────────────────────────────────────────
+var PRODUCT_INFO = {
+'Otthon Start 3%': {icon:'🏠', desc:'Államilag támogatott lakáshitel, végig fix 3%-os kamattal — első lakásukat megszerzőknek. Akár 50 millió Ft, legfeljebb 25 éves futamidőre, így a törlesztőrészlet a teljes futamidő alatt kiszámítható.', faq:[
+['Ki veheti igénybe?','Alapesetben az igényelhet, akinek az elmúlt 10 évben nem volt saját belterületi lakóingatlana (van néhány kivétel, pl. 15 millió Ft alatti értékű vagy haszonélvezettel terhelt ingatlan). Legalább 180 nap TB-jogviszony és megfelelő igazolt jövedelem is szükséges.'],
+['Milyen ingatlanra?','Lakásnál legfeljebb 100 millió Ft, családi háznál 150 millió Ft lehet a vételár, és a négyzetméterár nem haladhatja meg az 1,5 millió Ft-ot.'],
+['Hányszor igényelhető?','Életedben egyszer. Éppen ezért érdemes szakértővel átgondolni, mikor és mire használod fel.'],
+['Kombinálható más támogatással?','Bizonyos feltételekkel igen — pl. CSOK Plusszal. Ez az egyik legfontosabb kérdés, amiben egyénileg érdemes számolni.']]},
+'Lakáshitel': {icon:'🏠', desc:'Hosszú távú, ingatlanfedezetű kölcsön vásárlásra, építésre, felújításra vagy bővítésre. A bankok kondíciói jelentősen eltérnek — ugyanarra a hitelre akár milliós különbség is lehet a teljes visszafizetésben.', faq:[
+['Mennyi önerő kell?','Jellemzően az ingatlan értékének 20%-a, de banktól és élethelyzettől függően ez eltérhet. Bizonyos esetekben kiegészítő fedezettel csökkenthető.'],
+['Fix vagy változó kamat?','Ma a legtöbben hosszabb kamatperiódust vagy végig fix kamatot választanak a kiszámíthatóság miatt. A helyes válasz a futamidőtől és a kockázattűrésedtől függ.'],
+['Mi az a JTM?','A jövedelemarányos törlesztési mutató: azt szabályozza, a nettó jövedelmed mekkora része mehet hiteltörlesztésre. Minden meglévő hiteled beleszámít.'],
+['Mennyi idő az ügyintézés?','Átlagosan 1–1,5 hónap a teljes folyamat az igényléstől a folyósításig — jó előkészítéssel rövidíthető.']]},
+'CSOK Plusz': {icon:'👨‍👩‍👧', desc:'Kamattámogatott lakáshitel gyermeket vállaló házaspároknak, legfeljebb 3%-os kamattal. Az igényelhető összeg a vállalt gyermekek számától függ — akár 50 millió Ft is lehet.', faq:[
+['Mekkora összeg igényelhető?','Egy gyermeknél legfeljebb 15, kettőnél 30, három vagy több gyermeknél 50 millió Ft.'],
+['Kik igényelhetik?','Házaspárok, ahol a feleség 41 év alatti, és legalább egy (további) gyermeket vállalnak. Az igényléshez TB-jogviszony is szükséges.'],
+['Mi történik, ha megszületik a gyermek?','Minden újabb gyermek után 10 millió Ft tőketartozás-elengedés jár (a második gyermektől).'],
+['Használt lakásra is jó?','Igen, vásárolható belőle használt és új ingatlan is, illetve építkezésre is felhasználható — értékhatárok mellett.']]},
+'Falusi CSOK': {icon:'🏡', desc:'Vissza nem térítendő állami támogatás preferált kistelepüléseken történő ingatlanvásárlásra és korszerűsítésre. A gyermekszámtól függő összeg fele vásárlásra, fele felújításra fordítható.', faq:[
+['Mely településeken érhető el?','A kormányrendeletben felsorolt preferált kistelepüléseken — a lista időről időre módosul, ezért igénylés előtt mindig ellenőrizzük.'],
+['Mire használható?','Ingatlan vásárlására és/vagy korszerűsítésére, bővítésére — akár kombinálva is.'],
+['Kell hozzá gyermek?','Igen, az összeg a meglévő és vállalt gyermekek számától függ.'],
+['Kombinálható más támogatással?','Igen, például falusi CSOK mellé kamattámogatott hitel is igényelhető — a részleteket egyénileg érdemes átszámolni.']]},
+'Babaváró': {icon:'👶', desc:'Szabad felhasználású, akár 11 millió Ft-os kölcsön fiatal házaspároknak, amely kamatmentessé válik, ha az első gyermek az igénylést követő 5 éven belül megszületik.', faq:[
+['Mennyi a törlesztőrészlet?','A kamattámogatott időszakban legfeljebb kb. 51 000 Ft havonta, az állami kezességvállalási díjjal együtt.'],
+['Mi jár a gyermekek után?','Az első gyermeknél a törlesztés 3 évre szüneteltethető, a másodiknál a tartozás 30%-át elengedik, a harmadiknál a teljes fennmaradó tartozás megszűnhet.'],
+['Mi történik, ha nem születik gyermek 5 éven belül?','A kamattámogatást vissza kell fizetni, és a hitel piaci kamatozásúvá válik. Önhibán kívüli esetben (pl. egészségügyi ok) méltányosság kérhető.'],
+['Lakásvásárlásra használható?','Igen — szabad felhasználású, és bizonyos feltételekkel önerőként is beszámítható.']]},
+'Személyi kölcsön': {icon:'💳', desc:'Gyors, fedezet nélküli kölcsön szabad felhasználásra — jellemzően pár napon belül folyósítják. Az ára magasabb, mint a jelzáloghiteleké, ezért a futamidőt és az összeget érdemes okosan megválasztani.', faq:[
+['Mekkora összeg érhető el?','Bankonként eltérő, jellemzően 300 ezer és 10 millió Ft között, a jövedelemtől függően.'],
+['Mi kell hozzá?','Igazolt, rendszeres jövedelem, pozitív hitelmúlt és bankszámlakivonat. Fedezet és önerő nem szükséges.'],
+['Mennyi idő alatt folyósítják?','A legjobb esetben 1–3 munkanap — ez az egyik leggyorsabb hitelforma.'],
+['Kiválthatom vele a drágább hiteleimet?','Igen, gyakori a hitelkiváltás — ha a meglévő hiteleid drágábbak, összevonással sokat lehet spórolni.']]},
+'KGFB': {icon:'🚗', desc:'Kötelező gépjármű-felelősségbiztosítás — minden autóra kell, de messze nem mindegy, mennyiért. A biztosítók díjai között jelentős különbségek vannak, évente érdemes összehasonlítani.', faq:[
+['Mikor válthatok biztosítót?','Az évfordulón (a legtöbb régi szerződésnél ez naptári évhez kötött), illetve új autó vásárlásakor azonnal. A felmondásnak az évforduló előtt 30 nappal be kell érkeznie.'],
+['Mi az a bonus-malus?','Károkozás-mentességi fokozat: minél régebb óta vezetsz kár nélkül, annál nagyobb kedvezményt kapsz. Váltásnál a fokozat veled megy.'],
+['Mitől függ a díj?','Életkor, lakóhely, autó teljesítménye, káralakulás — és attól, melyik biztosítónál kötöd. Ugyanarra az autóra akár kétszeres különbség is lehet.']]},
+'CASCO': {icon:'🚙', desc:'A saját autódban keletkezett károkra nyújt fedezetet: töréskár, lopás, üvegkár, elemi kár — olyan esetekre is, amikor te vagy a hibás, vagy nincs kitől kártérítést kérni.', faq:[
+['Kötelező a casco?','Nem, de hitelre vett vagy lízingelt autónál a finanszírozó jellemzően előírja. Értékesebb autónál enélkül nagy kockázatot futsz.'],
+['Mennyi az önrész?','Választható — jellemzően 10% és egy fix minimum összeg. Magasabb önrésszel olcsóbb a díj.'],
+['Részleges casco létezik?','Igen, például csak lopás- és elemikár-fedezettel — idősebb autóknál gyakran ez a racionális választás.']]},
+'Lakásbiztosítás': {icon:'🏠', desc:'Az otthonod és az ingóságaid védelme tűz, vihar, csőtörés, betörés és számos más kár ellen. A régi, felül nem vizsgált szerződések gyakran alulbiztosítottak vagy túlárazottak.', faq:[
+['Mikor válthatok?','Évfordulón, illetve minden év márciusában a lakásbiztosítási kampányidőszakban is — utóbbit külön erre hozták létre, hogy könnyebb legyen jobb ajánlatra váltani.'],
+['Mi az az alulbiztosítottság?','Ha a biztosítási összeg kisebb, mint az ingatlan újjáépítési értéke, kár esetén arányosan kevesebbet fizet a biztosító. Régi szerződéseknél ez gyakori csapda.'],
+['A hitelhez kötött lakásbiztosításom jó?','Nem biztos — a banki minimum gyakran csak a bank érdekét védi. Érdemes felülvizsgálni, mit fedez valójában.']]},
+'Életbiztosítás': {icon:'🛡️', desc:'A családod anyagi biztonsága, ha veled történik valami — illetve megtakarítási elemmel kombinálva hosszú távú célokra is használható. A lényeg a megfelelő összeg és a jó struktúra.', faq:[
+['Kockázati vagy megtakarításos?','A kockázati tisztán védelmet ad alacsony díjért; a megtakarításos befektetést is tartalmaz. A kettő más célt szolgál — gyakran a kombinációjuk az ideális.'],
+['Mekkora biztosítási összeg kell?','Ökölszabály: a család 3–5 évnyi kiadása plusz a fennálló hitelek. Egyénileg számoljuk ki.'],
+['A hitelemhez kell életbiztosítás?','Jelzáloghitelnél erősen ajánlott — ha a családfenntartóval történik valami, a hitel nem marad a családon.']]},
+'Egészségbiztosítás': {icon:'⚕️', desc:'Privát egészségügyi ellátás várólisták nélkül: gyors diagnosztika, szakorvos, akár műtéti fedezet. Munkáltatói csomagként is egyre népszerűbb.', faq:[
+['Mit fedez?','Csomagtól függően: járóbeteg-ellátás, diagnosztika (labor, MR, CT), szakorvosi konzultáció, egyes csomagoknál műtétek és kórházi ellátás.'],
+['Meglévő betegségre is jó?','A már ismert betegségeket a biztosítók jellemzően kizárják vagy várakozási időt alkalmaznak — ezért érdemes egészségesen kötni.'],
+['Családra is köthető?','Igen, családi csomagok is elérhetők, gyermekekkel együtt.']]},
+'Utasbiztosítás': {icon:'✈️', desc:'Külföldi utazásnál a legolcsóbb tétel, ami a legnagyobb bajtól véd: egy külföldi kórházi számla milliós is lehet. Egyszeri utakra és éves bérletként is köthető.', faq:[
+['Az útlemondásra is van fedezet?','Igen, storno biztosítással — ezt a foglaláskor érdemes megkötni, nem indulás előtt.'],
+['Éves vagy egyszeri?','Ha évente többször utazol, az éves bérlet szinte mindig olcsóbb és kényelmesebb.'],
+['A bankkártyám mellé kell?','A kártyás biztosítások fedezete gyakran alacsony és feltételekhez kötött — érdemes megnézni, mit tud valójában.']]},
+'Nyugdíjbiztosítás': {icon:'🌅', desc:'Hosszú távú nyugdíjcélú megtakarítás, amelyre az állam évi 20% adó-visszatérítést ad (legfeljebb 130 000 Ft-ot). A befizetéseid befektetésre kerülnek, és nyugdíjba vonuláskor egyben vagy járadékként veheted fel.', faq:[
+['Mennyi adót kapok vissza?','A befizetéseid 20%-át, évente legfeljebb 130 000 Ft-ot ír jóvá a NAV a szerződéseden — ez önmagában is kiemelkedő „hozam”.'],
+['Mikor férek hozzá?','A szerződéskötéskor érvényes nyugdíjkorhatár betöltésekor. Korábbi hozzáférésnél a kedvezményeket vissza kell fizetni.'],
+['Mi történik, ha nem tudom fizetni?','A legtöbb szerződés szüneteltethető vagy díjcsökkenthető — ezt a konstrukció kiválasztásánál előre figyelembe vesszük.']]},
+'Nyugdíjpénztár': {icon:'🌅', desc:'Önkéntes nyugdíjpénztári megtakarítás, 20% adó-visszatérítéssel (évente legfeljebb 150 000 Ft). Rugalmas befizetés, munkáltatói hozzájárulással is kombinálható.', faq:[
+['Miben más, mint a nyugdíjbiztosítás?','Alacsonyabb költségű, rugalmasabb, de kevesebb garanciális elem — a kettő jól kiegészíti egymást, az ideális mix egyéni.'],
+['Választhatok portfóliót?','Igen, kockázatvállalás szerint (klasszikus, kiegyensúlyozott, növekedési) — és később válthatsz is.']]},
+'TBSZ': {icon:'📈', desc:'Tartós befektetési számla: a hozamod 5 év után teljesen adómentes (3 év után kedvezményes). Az egyik leghatékonyabb eszköz középtávú vagyonépítésre.', faq:[
+['Hogyan működik az adómentesség?','A nyitás évét követő 5. év végéig bent tartott befektetések hozama után nem fizetsz SZJA-t. 3 év után részleges kedvezmény jár.'],
+['Mennyit tehetek be?','A nyitás évében szabadon, utána az adott számlára már nem — ezért évente új TBSZ nyitható.'],
+['Mibe fektethetek rajta?','Állampapír, részvény, befektetési alap — a számlán belül szabadon átrendezheted.']]},
+'Állampapír': {icon:'🏛️', desc:'A magyar állam által garantált, kiszámítható befektetés — lakossági állampapírokkal az inflációt is követheted. Jó alap minden portfólióhoz, de nem mindegy, melyik sorozat.', faq:[
+['Biztonságos?','Az állam garantálja tőkéd és kamatod visszafizetését — a legalacsonyabb kockázatú forintbefektetések közé tartozik.'],
+['Mikor férek hozzá a pénzhez?','Lejárat előtt is visszaváltható, jellemzően kis (kb. 1%) költséggel — így viszonylag likvid.'],
+['Melyik sorozatot válasszam?','Az élethelyzetedtől és a kamatkörnyezettől függ — fix vagy inflációkövető, rövid vagy hosszú. Ebben segítek eligazodni.']]},
+'Babakötvény': {icon:'🍼', desc:'Állami megtakarítás a gyermeked jövőjére: a befizetésekre évi 10% állami támogatás jár (legfeljebb 12 000 Ft), a kamat pedig infláció feletti. A gyermek 18 éves korában férhet hozzá.', faq:[
+['Hogyan indul?','Minden 2005 után született gyermek kap 42 500 Ft életkezdési támogatást — ezt Start-számlára helyezve indul a Babakötvény.'],
+['Ki fizethet be rá?','Bárki: szülő, nagyszülő, rokon — évente akár többször is.'],
+['Mire költhető?','A gyermek 18 éves kora után szabadon felhasználhatja — tanulásra, lakhatásra, életkezdésre.']]},
+'Lakástakarékpénztár': {icon:'🏦', desc:'Kiszámítható, államilag szabályozott lakáscélú megtakarítás, amely a futamidő végén kedvezményes lakáshitellel is kombinálható. Lakáscélra — vásárlás, felújítás, hiteltörlesztés — használható fel.', faq:[
+['Mire használható fel?','Lakásvásárlás, építés, felújítás, korszerűsítés, illetve fennálló lakáshitel törlesztése — széles a lakáscél fogalma.'],
+['Mennyire rugalmas?','A havi megtakarítás mértéke szerződéskötéskor rögzített, de a konstrukciók között nagy különbségek vannak — érdemes összehasonlítani.']]},
+'Széchenyi hitelek': {icon:'🏢', desc:'Államilag támogatott, kedvezményes kamatozású hitelprogram vállalkozásoknak — forgóeszközre, beruházásra, folyószámlahitelként. A mindenkori piaci kamatoknál jóval olcsóbb finanszírozás.', faq:[
+['Milyen célra igényelhető?','Forgóeszköz-finanszírozás, beruházás, folyószámlahitel — a program több konstrukcióból áll, célonként eltérő feltételekkel.'],
+['Ki igényelheti?','KKV-k, jellemzően minimum 1 lezárt üzleti évvel. Az igénylés a KAVOSZ-on keresztül zajlik — az előkészítésben segítek.'],
+['Mennyi a kamat?','A konstrukciótól és az aktuális kamattámogatástól függ — jellemzően jelentősen a piaci szint alatt.']]},
+'Cafeteria': {icon:'🎁', desc:'Adóhatékony béren kívüli juttatások a munkavállalóknak — SZÉP-kártyától a csoportos biztosításokig. Jól összeállítva a cégnek olcsóbb, a dolgozónak többet ér, mint a béremelés.', faq:[
+['Mi fér bele?','SZÉP-kártya, csoportos élet- és egészségbiztosítás, nyugdíjpénztári hozzájárulás, egészségpénztár — kedvezményes adózással.'],
+['Megéri a cégnek?','Igen: ugyanakkora nettó juttatás jellemzően kisebb összköltséggel adható, mint bérként — és erősíti a megtartást.']]}
+};
+
+var _prodCurrent = null;
+function openProd(name){
+  var p = PRODUCT_INFO[name];
+  if(!p) return;
+  _prodCurrent = name;
+  document.getElementById('pIcon').textContent = p.icon;
+  document.getElementById('pTitle').textContent = name;
+  document.getElementById('pDesc').textContent = p.desc;
+  document.getElementById('pFaq').innerHTML = p.faq.map(function(f){
+    return '<details><summary>'+f[0]+'</summary><div class="prod-faq-a">'+f[1]+'</div></details>';
+  }).join('');
+  document.getElementById('prodOverlay').classList.add('active');
+}
+function closeProd(){
+  document.getElementById('prodOverlay').classList.remove('active');
+}
+document.getElementById('prodOverlay').addEventListener('click', function(e){
+  if(e.target === this) closeProd();
+});
+function prodAsk(){
+  var t = _prodCurrent || '';
+  closeProd(); closeSvc();
+  var ti = document.getElementById('leadTopic');
+  if(ti) ti.value = t;
+  document.getElementById('lead').scrollIntoView({behavior:'smooth'});
+  setTimeout(function(){ var n=document.getElementById('leadName'); if(n) n.focus(); }, 700);
+}
+
+// ── LEAD BEKÜLDÉS (Supabase) ────────────────────────────────────────────────
+var LEAD_URL = 'https://spczsywkyblwhkutltxx.supabase.co/rest/v1/web_leads';
+var LEAD_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNwY3pzeXdreWJsd2hrdXRsdHh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5MTU5NDksImV4cCI6MjA5ODQ5MTk0OX0.npj-z1dCkdE0xdf2pJx40oxe20zwTq5xu-V96NbB4Og';
+function leadSubmit(e){
+  e.preventDefault();
+  if(document.getElementById('leadWebsite').value) return false; // honeypot
+  var btn = document.getElementById('leadSendBtn');
+  var st = document.getElementById('leadStatus');
+  btn.disabled = true;
+  st.textContent = '⏳ Küldés...'; st.style.color = 'var(--gray)';
+  fetch(LEAD_URL, {
+    method: 'POST',
+    headers: {
+      'apikey': LEAD_KEY,
+      'Authorization': 'Bearer ' + LEAD_KEY,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({
+      name: document.getElementById('leadName').value.trim(),
+      phone: document.getElementById('leadPhone').value.trim(),
+      email: document.getElementById('leadEmail').value.trim(),
+      topic: document.getElementById('leadTopic').value.trim(),
+      message: document.getElementById('leadMsg').value.trim()
+    })
+  }).then(function(r){
+    if(r.ok){
+      st.textContent = '✓ Megkaptam — 24 órán belül jelentkezem!';
+      st.style.color = 'var(--green)';
+      document.getElementById('leadForm').reset();
+    } else {
+      st.textContent = 'Hiba történt — próbáld újra, vagy írj e-mailt.';
+      st.style.color = '#ef4444';
+    }
+    btn.disabled = false;
+  }).catch(function(){
+    st.textContent = 'Hálózati hiba — próbáld újra.';
+    st.style.color = '#ef4444';
+    btn.disabled = false;
+  });
+  return false;
+}
 </script>
 </body>
 </html>
